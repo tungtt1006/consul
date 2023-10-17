@@ -1,0 +1,22 @@
+{
+  "node_name": "consul-client",
+  "server": false,
+  "datacenter": "dc1",
+  "data_dir": "/srv/consul/data",
+  "log_level": "INFO",
+  "retry_join": ["172.31.20.239"],
+  "service": {
+    "id": "dns",
+    "name": "dns",
+    "address": "localhost",
+    "port": 8600,
+    "check": {
+      "id": "dns",
+      "name": "Consul DNS TCP on port 8600",
+      "tcp": "localhost:8600",
+      "interval": "10s",
+      "timeout": "1s"
+    }
+  },
+  "encrypt": "JUFNWkxYPSie+KAqergjm4h2Oh1LQzzAzCon7RtSbk4="
+}

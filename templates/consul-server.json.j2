@@ -1,0 +1,19 @@
+{
+  "node_name": "consul-server",
+  "server": true,
+  "bootstrap": true,
+  "ui_config": {
+    "enabled": true
+  },
+  "datacenter": "dc1",
+  "data_dir": "/srv/consul/data",
+  "log_level": "INFO",
+  "addresses": {
+    "http": "0.0.0.0"
+  },
+  "encrypt": "JUFNWkxYPSie+KAqergjm4h2Oh1LQzzAzCon7RtSbk4=",
+  "retry_join":
+  {% set i = namespace(value=0) %}
+  [{% for ip in test %}"{{ ip }}"{% set length = test|length %}{% if i.value < length - 1 %}, {% endif %}{% set i.value = i.value + 1 %}
+{% endfor %}]
+}
